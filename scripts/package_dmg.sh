@@ -77,28 +77,29 @@ PY
 SetFile -a V "$MOUNT_DIR/.background"
 
 osascript <<APPLESCRIPT
+set dmgFolder to POSIX file "$MOUNT_DIR" as alias
 set bgPic to POSIX file "$MOUNT_DIR/.background/background.png" as alias
 tell application "Finder"
-    tell disk "$VOL_NAME"
-        open
-        set current view of container window to icon view
-        set toolbar visible of container window to false
-        set statusbar visible of container window to false
-        set the bounds of container window to {120, 120, 840, 550}
-        set viewOptions to the icon view options of container window
-        set arrangement of viewOptions to not arranged
-        set icon size of viewOptions to 96
-        set background picture of viewOptions to bgPic
-        set position of item "$APP" of container window to {144, 214}
-        set position of item "Applications" of container window to {576, 214}
-        update without registering applications
-        delay 1
-        close
-    end tell
+    open dmgFolder
+    delay 1
+    set dmgWindow to container window of dmgFolder
+    set current view of dmgWindow to icon view
+    set toolbar visible of dmgWindow to false
+    set statusbar visible of dmgWindow to false
+    set the bounds of dmgWindow to {120, 120, 840, 550}
+    set viewOptions to the icon view options of dmgWindow
+    set arrangement of viewOptions to not arranged
+    set icon size of viewOptions to 96
+    set background picture of viewOptions to bgPic
+    set position of item "$APP" of dmgWindow to {144, 214}
+    set position of item "Applications" of dmgWindow to {576, 214}
+    delay 2
+    close dmgWindow
 end tell
 APPLESCRIPT
 
 sync
+test -f "$MOUNT_DIR/.DS_Store"
 hdiutil detach "$MOUNT_DIR" -quiet
 
 hdiutil convert "$RW_DMG" \
