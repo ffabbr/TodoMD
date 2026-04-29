@@ -207,8 +207,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
         NSApp.activate(ignoringOtherApps: true)
         editorWindow.makeKeyAndOrderFront(nil)
-        if let tv = firstTextView(in: editorWindow.contentView) {
-            editorWindow.makeFirstResponder(tv)
+        focusEditorText(atEnd: true)
+        DispatchQueue.main.async { [weak self] in
+            self?.focusEditorText(atEnd: true)
         }
 
         let timing = CAMediaTimingFunction(controlPoints: 0.2, 0.85, 0.3, 1.02)
@@ -286,6 +287,16 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             if let found = firstTextView(in: sub) { return found }
         }
         return nil
+    }
+
+    private func focusEditorText(atEnd: Bool) {
+        guard let tv = firstTextView(in: editorWindow.contentView) else { return }
+        editorWindow.makeFirstResponder(tv)
+        if atEnd {
+            let end = tv.string.utf16.count
+            tv.setSelectedRange(NSRange(location: end, length: 0))
+            tv.scrollRangeToVisible(NSRange(location: end, length: 0))
+        }
     }
 
     private func targetFrame() -> NSRect {
