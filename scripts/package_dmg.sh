@@ -51,18 +51,18 @@ img = Image.new("RGB", (width, height), (255, 255, 255))
 draw = ImageDraw.Draw(img)
 
 arrow = (37, 45, 56)
-center_y = 206
-start_x = 302
-end_x = 426
-line_width = 10
-head = 28
+center_y = 204
+start_x = 268
+end_x = 452
+line_width = 18
+head = 54
 
 draw.line((start_x, center_y, end_x - head, center_y), fill=arrow, width=line_width)
 draw.polygon(
     [
-        (end_x - head, center_y - 26),
-        (end_x + 24, center_y),
-        (end_x - head, center_y + 26),
+        (end_x - head, center_y - 46),
+        (end_x + 42, center_y),
+        (end_x - head, center_y + 46),
     ],
     fill=arrow,
 )
@@ -85,10 +85,10 @@ tell application "Finder"
         set the bounds of dmgWindow to {120, 120, 840, 550}
     set viewOptions to the icon view options of dmgWindow
     set arrangement of viewOptions to not arranged
-    set icon size of viewOptions to 96
+    set icon size of viewOptions to 128
     set background picture of viewOptions to bgPic
-    set position of item "$APP" of dmgWindow to {170, 214}
-    set position of item "Applications" of dmgWindow to {550, 214}
+    set position of item "$APP" of dmgWindow to {150, 205}
+    set position of item "Applications" of dmgWindow to {570, 205}
     delay 2
     close dmgWindow
 end tell
