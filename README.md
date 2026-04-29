@@ -1,6 +1,6 @@
-# Todomd
+# TodoMD
 
-Todomd is a minimal macOS menu bar app for quickly editing a Markdown note.
+TodoMD is a minimal macOS menu bar app for quickly editing a Markdown note.
 
 ## Features
 
@@ -17,12 +17,12 @@ Todomd is a minimal macOS menu bar app for quickly editing a Markdown note.
 ./build.sh
 ```
 
-The build script creates `Todomd.app` in the project folder.
+The build script creates `TodoMD.app` in the project folder.
 
 ## Run
 
 ```sh
-open ./Todomd.app
+open ./TodoMD.app
 ```
 
 Use Settings from the popup or menu bar item to choose the Markdown file and configure the shortcut.

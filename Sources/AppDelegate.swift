@@ -44,7 +44,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         statusItem = item
         if let button = item.button {
             button.image = NSImage(systemSymbolName: "square.and.pencil",
-                                   accessibilityDescription: "Todomd")
+                                   accessibilityDescription: "TodoMD")
             button.target = self
             button.action = #selector(statusItemClicked(_:))
             button.sendAction(on: [.leftMouseDown, .rightMouseDown])
@@ -105,7 +105,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
                      action: #selector(openSettings),
                      keyEquivalent: ",").target = self
         menu.addItem(.separator())
-        menu.addItem(withTitle: "Quit Todomd",
+        menu.addItem(withTitle: "Quit TodoMD",
                      action: #selector(NSApplication.terminate(_:)),
                      keyEquivalent: "q")
         statusItem?.menu = menu

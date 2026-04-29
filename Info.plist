@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
     <key>CFBundleName</key>
-    <string>Todomd</string>
+    <string>TodoMD</string>
     <key>CFBundleDisplayName</key>
-    <string>Todomd</string>
+    <string>TodoMD</string>
     <key>CFBundleExecutable</key>
-    <string>Todomd</string>
+    <string>TodoMD</string>
     <key>CFBundleIdentifier</key>
     <string>local.todomd</string>
     <key>CFBundleIconFile</key>
-    <string>Todomd</string>
+    <string>TodoMD</string>
     <key>CFBundleVersion</key>
     <string>1</string>
     <key>CFBundleShortVersionString</key>

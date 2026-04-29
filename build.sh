@@ -2,13 +2,13 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-APP="Todomd.app"
-EXEC="Todomd"
+APP="TodoMD.app"
+EXEC="TodoMD"
 
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources"
 cp Info.plist "$APP/Contents/Info.plist"
-cp Resources/Todomd.icns "$APP/Contents/Resources/Todomd.icns"
+cp Resources/TodoMD.icns "$APP/Contents/Resources/TodoMD.icns"
 
 swiftc -O \
     -target arm64-apple-macos14.0 \

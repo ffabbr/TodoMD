@@ -47,7 +47,7 @@ struct SettingsView: View {
                     .onChange(of: hideMenuBarEntryAfterLaunch) { _, enabled in
                         AppDelegate.shared.updateMenuBarEntryAutoHide(enabled: enabled)
                     }
-                Text("Opening Todomd again temporarily shows the menu bar entry.")
+                Text("Opening TodoMD again temporarily shows the menu bar entry.")
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }
