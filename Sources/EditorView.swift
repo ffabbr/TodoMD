@@ -92,9 +92,15 @@ struct EditorView: View {
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
                 .multilineTextAlignment(.center)
-            Button("Open Settings…") { openSettings() }
-                .buttonStyle(.borderedProminent)
-                .controlSize(.regular)
+            Button { openSettings() } label: {
+                Text("Open Settings…")
+                    .font(.system(size: 13, weight: .medium))
+                    .padding(.horizontal, 16)
+                    .frame(height: 30)
+                    .background(Capsule().fill(Color.accentColor))
+                    .foregroundStyle(.white)
+            }
+            .buttonStyle(.plain)
                 .padding(.top, 4)
         }
         .padding(30)
