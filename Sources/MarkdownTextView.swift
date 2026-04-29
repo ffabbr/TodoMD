@@ -221,7 +221,39 @@ final class MDTextView: NSTextView {
                 onCmdComma?()
                 return
             }
+            if handleCommandShortcut(event) {
+                return
+            }
         }
         super.keyDown(with: event)
+    }
+
+    private func handleCommandShortcut(_ event: NSEvent) -> Bool {
+        let modifiers = event.modifierFlags.intersection([.command, .shift, .option, .control])
+        guard modifiers.isSubset(of: [.command, .shift]),
+              let key = event.charactersIgnoringModifiers?.lowercased() else {
+            return false
+        }
+
+        switch key {
+        case "a":
+            selectAll(nil)
+        case "c":
+            copy(nil)
+        case "x":
+            cut(nil)
+        case "v":
+            paste(nil)
+        case "z":
+            if modifiers.contains(.shift) {
+                undoManager?.redo()
+            } else {
+                undoManager?.undo()
+            }
+        default:
+            return false
+        }
+
+        return true
     }
 }
