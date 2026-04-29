@@ -28,3 +28,11 @@ open ./TodoMD.app
 ```
 
 Use Settings from the popup or menu bar item to choose the Markdown file and configure the shortcut.
+
+## Package
+
+```sh
+./scripts/package_dmg.sh
+```
+
+The packaging script creates a styled drag-and-drop installer at `dist/TodoMD.dmg`.
