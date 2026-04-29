@@ -38,43 +38,9 @@ hdiutil attach "$RW_DMG" -mountpoint "$MOUNT_DIR" -nobrowse -quiet
 
 cp -R "$APP" "$MOUNT_DIR/"
 ln -s /Applications "$MOUNT_DIR/Applications"
-mkdir -p "$MOUNT_DIR/.background"
-
-python3 - <<'PY' "$MOUNT_DIR/.background/background.png"
-from pathlib import Path
-import sys
-from PIL import Image, ImageDraw
-
-out = Path(sys.argv[1])
-width, height = 720, 430
-img = Image.new("RGB", (width, height), (255, 255, 255))
-draw = ImageDraw.Draw(img)
-
-arrow = (37, 45, 56)
-center_y = 210
-start_x = 250
-end_x = 470
-line_width = 24
-head = 70
-
-draw.line((start_x, center_y, end_x - head, center_y), fill=arrow, width=line_width)
-draw.polygon(
-    [
-        (end_x - head, center_y - 60),
-        (end_x + 54, center_y),
-        (end_x - head, center_y + 60),
-    ],
-    fill=arrow,
-)
-
-img.save(out)
-PY
-
-SetFile -a V "$MOUNT_DIR/.background"
 
 osascript <<APPLESCRIPT
 set dmgFolder to POSIX file "$MOUNT_DIR" as alias
-set bgPic to POSIX file "$MOUNT_DIR/.background/background.png" as alias
 tell application "Finder"
     open dmgFolder
     delay 1
@@ -86,7 +52,6 @@ tell application "Finder"
     set viewOptions to the icon view options of dmgWindow
     set arrangement of viewOptions to not arranged
     set icon size of viewOptions to 144
-    set background picture of viewOptions to bgPic
     set position of item "$APP" of dmgWindow to {145, 210}
     set position of item "Applications" of dmgWindow to {575, 210}
     delay 2
