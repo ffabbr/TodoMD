@@ -52,8 +52,8 @@ tell application "Finder"
     set viewOptions to the icon view options of dmgWindow
     set arrangement of viewOptions to not arranged
     set icon size of viewOptions to 144
-    set position of item "$APP" of dmgWindow to {145, 210}
-    set position of item "Applications" of dmgWindow to {575, 210}
+    set position of item "$APP" of dmgWindow to {145, 185}
+    set position of item "Applications" of dmgWindow to {575, 185}
     delay 2
     close dmgWindow
 end tell
