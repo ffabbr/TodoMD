@@ -122,15 +122,15 @@ struct KeyCap: View {
 
     var body: some View {
         Text(symbol)
-            .font(.system(size: 11, weight: .medium))
+            .font(.system(size: 10, weight: .medium))
             .foregroundStyle(.secondary)
-            .frame(width: 22, height: 22)
+            .frame(width: 18, height: 18)
             .background(
-                RoundedRectangle(cornerRadius: 5)
+                RoundedRectangle(cornerRadius: 4)
                     .fill(.quaternary)
             )
             .overlay(
-                RoundedRectangle(cornerRadius: 5)
+                RoundedRectangle(cornerRadius: 4)
                     .strokeBorder(.white.opacity(0.06), lineWidth: 1)
             )
     }
