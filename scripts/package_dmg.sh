@@ -5,7 +5,7 @@ cd "$(dirname "$0")/.."
 
 APP_NAME="TodoMD"
 APP="$APP_NAME.app"
-VOL_NAME="TodoMD"
+VOL_NAME="TodoMD Installer"
 OUT_DIR="dist"
 OUT_DMG="$OUT_DIR/$APP_NAME.dmg"
 
@@ -51,18 +51,18 @@ img = Image.new("RGB", (width, height), (255, 255, 255))
 draw = ImageDraw.Draw(img)
 
 arrow = (37, 45, 56)
-center_y = 204
-start_x = 268
-end_x = 452
-line_width = 18
-head = 54
+center_y = 210
+start_x = 250
+end_x = 470
+line_width = 24
+head = 70
 
 draw.line((start_x, center_y, end_x - head, center_y), fill=arrow, width=line_width)
 draw.polygon(
     [
-        (end_x - head, center_y - 46),
-        (end_x + 42, center_y),
-        (end_x - head, center_y + 46),
+        (end_x - head, center_y - 60),
+        (end_x + 54, center_y),
+        (end_x - head, center_y + 60),
     ],
     fill=arrow,
 )
@@ -85,10 +85,10 @@ tell application "Finder"
         set the bounds of dmgWindow to {120, 120, 840, 550}
     set viewOptions to the icon view options of dmgWindow
     set arrangement of viewOptions to not arranged
-    set icon size of viewOptions to 128
+    set icon size of viewOptions to 144
     set background picture of viewOptions to bgPic
-    set position of item "$APP" of dmgWindow to {150, 205}
-    set position of item "Applications" of dmgWindow to {570, 205}
+    set position of item "$APP" of dmgWindow to {145, 210}
+    set position of item "Applications" of dmgWindow to {575, 210}
     delay 2
     close dmgWindow
 end tell
