@@ -4,7 +4,7 @@ TodoMD is a minimal macOS menu bar app for quickly editing a Markdown note. I us
 
 See it as a Todo app that saves to a file and syncs with your other devices (depending on where you store that file). Use Settings from the popup or menu bar item to choose the Markdown file and configure the shortcut.
 
-**Install by downloading the Release dmg at the right.**. 
+**Install by downloading the Release dmg at the right.**
 
 ![Usage Preview](https://github.com/ffabbr/TodoMD/blob/main/Resources/screen-recording.gif)
 
